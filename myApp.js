@@ -17,6 +17,9 @@ const helmet = require('helmet');
 const app = express();
 const bcrypt = require('bcrypt');
 
+app.use(helmet.hidePoweredBy());
+app.use(helmet.frameguard({ action: "DENY" }));
+
 app.use(helmet({
   contentSecurityPolicy: {
     directives: {
